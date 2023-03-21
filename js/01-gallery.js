@@ -5,6 +5,9 @@ const gallery = document.querySelector(".gallery");
 const cardsMarkup = createGalleryCard(galleryItems);
 
 gallery.insertAdjacentHTML("beforeend", cardsMarkup);
+gallery.addEventListener("click", (event) => {
+  event.preventDefault();
+});
 
 function createGalleryCard(items) {
   return items
@@ -23,4 +26,16 @@ function createGalleryCard(items) {
     `;
     })
     .join("");
+}
+
+gallery.addEventListener("click", onGalleryItemClick);
+
+const modalPicture = basicLightbox.create();
+
+function onGalleryItemClick(event) {
+  if (event.target.nodeName !== "IMG") {
+    return;
+  }
+
+  modalPicture.show();
 }
