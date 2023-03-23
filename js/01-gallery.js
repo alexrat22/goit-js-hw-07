@@ -30,12 +30,14 @@ function createGalleryCard(items) {
 
 gallery.addEventListener("click", onGalleryItemClick);
 
-const modalPicture = basicLightbox.create();
-
 function onGalleryItemClick(event) {
-  if (event.target.nodeName !== "IMG") {
+  if (!event.target.classList.contains("gallery__image")) {
     return;
   }
+
+  const modalPicture = basicLightbox.create(`
+    <img src=${event.target.dataset.source}>
+`);
 
   modalPicture.show();
 }
