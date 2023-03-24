@@ -5,9 +5,6 @@ const gallery = document.querySelector(".gallery");
 const cardsMarkup = createGalleryCard(galleryItems);
 
 gallery.insertAdjacentHTML("beforeend", cardsMarkup);
-gallery.addEventListener("click", (event) => {
-  event.preventDefault();
-});
 
 function createGalleryCard(items) {
   return items
@@ -35,6 +32,7 @@ function onGalleryItemClick(event) {
     return;
   }
 
+  event.preventDefault();
   const modalPicture = basicLightbox.create(`
     <img src=${event.target.dataset.source}>
 `);
