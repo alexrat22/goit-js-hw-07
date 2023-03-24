@@ -41,12 +41,12 @@ function onGalleryItemClick(event) {
 
   modalPicture.show();
 
-  gallery.addEventListener("keydown", onKeyClose);
+  gallery.addEventListener("keydown", onCloseKeyPress);
 
-  function onKeyClose(event) {
+  function onCloseKeyPress(event) {
     if (event.code === "Escape") {
       modalPicture.close();
-      gallery.removeEventListener("keydown", onKeyClose);
+      gallery.removeEventListener("keydown", onCloseKeyPress);
     }
   }
 }
