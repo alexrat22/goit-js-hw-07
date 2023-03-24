@@ -40,4 +40,10 @@ function onGalleryItemClick(event) {
 `);
 
   modalPicture.show();
+
+  gallery.addEventListener("keydown", (event) => {
+    if (event.code === "Escape") {
+      modalPicture.close();
+    }
+  });
 }
