@@ -2,12 +2,6 @@ import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 const gallery = document.querySelector(".gallery");
-const cardsMarkup = createGalleryCard(galleryItems);
-
-gallery.insertAdjacentHTML("beforeend", cardsMarkup);
-gallery.addEventListener("click", (event) => {
-  event.preventDefault();
-});
 
 function createGalleryCard(items) {
   return items
@@ -23,7 +17,10 @@ function createGalleryCard(items) {
     .join("");
 }
 
-const lightbox = new SimpleLightbox(".gallery a", {
+const cardsMarkup = createGalleryCard(galleryItems);
+gallery.insertAdjacentHTML("beforeend", cardsMarkup);
+
+new SimpleLightbox(".gallery a", {
   captionSelector: ".gallery__image",
   captionType: "attr",
   captionsData: "alt",
